@@ -1,8 +1,11 @@
 package com.vini.school.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.time.LocalDate;
 
+@Data
 @Entity
 @Table(name = "enrollments")
 public class Enrollment {
@@ -20,6 +23,4 @@ public class Enrollment {
     private Classroom classroom;
 
     private LocalDate enrollmentDate;
-
-    public Enrollment() {}
 }

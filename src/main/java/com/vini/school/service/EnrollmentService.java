@@ -24,15 +24,22 @@ public class EnrollmentService {
     }
 
     public Enrollment getEnrollmentById(Long id) {
-
         return enrollmentRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Enrollment not found"));
+                .orElseThrow(() -> new RuntimeException("Enrollment não encontrado"));
+    }
+
+    public Enrollment updateEnrollment(Long id, Enrollment enrollment) {
+        Enrollment existingEnrollment = enrollmentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Enrollment não encontrado"));
+
+        existingEnrollment.setStudent(enrollment.getStudent());
+        existingEnrollment.setClassroom(enrollment.getClassroom());
+        existingEnrollment.setEnrollmentDate(enrollment.getEnrollmentDate());
+
+        return enrollmentRepository.save(existingEnrollment);
     }
 
     public void deleteEnrollment(Long id) {
-
-        Enrollment enrollment = getEnrollmentById(id);
-
-        enrollmentRepository.delete(enrollment);
+        enrollmentRepository.deleteById(id);
     }
 }
