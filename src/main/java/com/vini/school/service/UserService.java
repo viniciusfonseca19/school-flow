@@ -16,11 +16,6 @@ public class UserService {
     }
 
     public User createUser(User user) {
-
-        if (userRepository.findByUsername(user.getUsername()).isPresent()) {
-            throw new RuntimeException("Username already exists");
-        }
-
         return userRepository.save(user);
     }
 
@@ -29,15 +24,22 @@ public class UserService {
     }
 
     public User getUserById(Long id) {
-
         return userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+    }
+
+    public User updateUser(Long id, User user) {
+        User existingUser = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+
+        existingUser.setUsername(user.getUsername());
+        existingUser.setPassword(user.getPassword());
+        existingUser.setRole(user.getRole());
+
+        return userRepository.save(existingUser);
     }
 
     public void deleteUser(Long id) {
-
-        User user = getUserById(id);
-
-        userRepository.delete(user);
+        userRepository.deleteById(id);
     }
 }
