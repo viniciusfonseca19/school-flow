@@ -14,8 +14,5 @@ public class Course {
 
     private String name;
 
-    private Integer workload;
-
-    @ManyToOne
-    private Teacher teacher;
+    private String description;
 }

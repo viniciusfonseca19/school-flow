@@ -3,27 +3,30 @@ package com.vini.school.dto.response;
 public class TeacherResponseDTO {
 
     private Long id;
-    private String name;
+    private String fullName;
     private String email;
+    private String specialization;
 
-    public TeacherResponseDTO() {
-    }
-
-    public TeacherResponseDTO(Long id, String name, String email) {
+    public TeacherResponseDTO(Long id, String fullName, String email, String specialization) {
         this.id = id;
-        this.name = name;
+        this.fullName = fullName;
         this.email = email;
+        this.specialization = specialization;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return fullName;
     }
 
     public String getEmail() {
         return email;
+    }
+
+    public String getSpecialization() {
+        return specialization;
     }
 }

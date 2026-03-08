@@ -2,25 +2,19 @@ package com.vini.school.dto.request;
 
 public class TeacherRequestDTO {
 
-    private String name;
+    private String fullName;
     private String email;
+    private String specialization;
 
-    public TeacherRequestDTO() {
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public String getFullName() {
+        return fullName;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getSpecialization() {
+        return specialization;
     }
 }

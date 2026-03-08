@@ -1,10 +1,13 @@
 package com.vini.school.service;
 
+import com.vini.school.dto.request.TeacherRequestDTO;
+import com.vini.school.dto.response.TeacherResponseDTO;
 import com.vini.school.entity.Teacher;
 import com.vini.school.repository.TeacherRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TeacherService {
@@ -15,40 +18,67 @@ public class TeacherService {
         this.teacherRepository = teacherRepository;
     }
 
-    public Teacher createTeacher(Teacher teacher) {
+    public TeacherResponseDTO create(TeacherRequestDTO dto) {
 
-        if (teacherRepository.findByEmail(teacher.getEmail()).isPresent()) {
+        if (teacherRepository.findByEmail(dto.getEmail()).isPresent()) {
             throw new RuntimeException("Email already in use");
         }
 
-        return teacherRepository.save(teacher);
+        Teacher teacher = new Teacher();
+        teacher.setFullName(dto.getFullName());
+        teacher.setEmail(dto.getEmail());
+        teacher.setSpecialization(dto.getSpecialization());
+
+        Teacher savedTeacher = teacherRepository.save(teacher);
+
+        return convertToResponse(savedTeacher);
     }
 
-    public List<Teacher> getAllTeachers() {
-        return teacherRepository.findAll();
+    public List<TeacherResponseDTO> getAllTeachers() {
+
+        return teacherRepository.findAll()
+                .stream()
+                .map(this::convertToResponse)
+                .collect(Collectors.toList());
     }
 
-    public Teacher getTeacherById(Long id) {
+    public TeacherResponseDTO getTeacherById(Long id) {
 
-        return teacherRepository.findById(id)
+        Teacher teacher = teacherRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Teacher not found"));
+
+        return convertToResponse(teacher);
     }
 
-    public Teacher updateTeacher(Long id, Teacher updatedTeacher) {
+    public TeacherResponseDTO updateTeacher(Long id, TeacherRequestDTO dto) {
 
-        Teacher teacher = getTeacherById(id);
+        Teacher teacher = teacherRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Teacher not found"));
 
-        teacher.setFullName(updatedTeacher.getFullName());
-        teacher.setEmail(updatedTeacher.getEmail());
-        teacher.setSpecialization(updatedTeacher.getSpecialization());
+        teacher.setFullName(dto.getFullName());
+        teacher.setEmail(dto.getEmail());
+        teacher.setSpecialization(dto.getSpecialization());
 
-        return teacherRepository.save(teacher);
+        Teacher updatedTeacher = teacherRepository.save(teacher);
+
+        return convertToResponse(updatedTeacher);
     }
 
     public void deleteTeacher(Long id) {
 
-        Teacher teacher = getTeacherById(id);
+        Teacher teacher = teacherRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Teacher not found"));
 
         teacherRepository.delete(teacher);
+    }
+
+    private TeacherResponseDTO convertToResponse(Teacher teacher) {
+
+        return new TeacherResponseDTO(
+                teacher.getId(),
+                teacher.getFullName(),
+                teacher.getEmail(),
+                teacher.getSpecialization()
+        );
     }
 }
