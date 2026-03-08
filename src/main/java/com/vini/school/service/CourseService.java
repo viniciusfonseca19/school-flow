@@ -1,10 +1,13 @@
 package com.vini.school.service;
 
+import com.vini.school.dto.request.CourseRequestDTO;
+import com.vini.school.dto.response.CourseResponseDTO;
 import com.vini.school.entity.Course;
 import com.vini.school.repository.CourseRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CourseService {
@@ -15,35 +18,60 @@ public class CourseService {
         this.courseRepository = courseRepository;
     }
 
-    public Course createCourse(Course course) {
-        return courseRepository.save(course);
+    public CourseResponseDTO create(CourseRequestDTO dto) {
+
+        Course course = new Course();
+        course.setName(dto.getName());
+        course.setDescription(dto.getDescription());
+
+        Course savedCourse = courseRepository.save(course);
+
+        return convertToResponse(savedCourse);
     }
 
-    public List<Course> getAllCourses() {
-        return courseRepository.findAll();
+    public List<CourseResponseDTO> getAllCourses() {
+
+        return courseRepository.findAll()
+                .stream()
+                .map(this::convertToResponse)
+                .collect(Collectors.toList());
     }
 
-    public Course getCourseById(Long id) {
+    public CourseResponseDTO getCourseById(Long id) {
 
-        return courseRepository.findById(id)
+        Course course = courseRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Course not found"));
+
+        return convertToResponse(course);
     }
 
-    public Course updateCourse(Long id, Course updatedCourse) {
+    public CourseResponseDTO updateCourse(Long id, CourseRequestDTO dto) {
 
-        Course course = getCourseById(id);
+        Course course = courseRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Course not found"));
 
-        course.setName(updatedCourse.getName());
-        course.setWorkload(updatedCourse.getWorkload());
-        course.setTeacher(updatedCourse.getTeacher());
+        course.setName(dto.getName());
+        course.setDescription(dto.getDescription());
 
-        return courseRepository.save(course);
+        Course updatedCourse = courseRepository.save(course);
+
+        return convertToResponse(updatedCourse);
     }
 
     public void deleteCourse(Long id) {
 
-        Course course = getCourseById(id);
+        Course course = courseRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Course not found"));
 
         courseRepository.delete(course);
+    }
+
+    private CourseResponseDTO convertToResponse(Course course) {
+
+        return new CourseResponseDTO(
+                course.getId(),
+                course.getName(),
+                course.getDescription()
+        );
     }
 }

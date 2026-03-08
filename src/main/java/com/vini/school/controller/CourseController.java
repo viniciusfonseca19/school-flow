@@ -1,6 +1,7 @@
 package com.vini.school.controller;
 
-import com.vini.school.entity.Course;
+import com.vini.school.dto.request.CourseRequestDTO;
+import com.vini.school.dto.response.CourseResponseDTO;
 import com.vini.school.service.CourseService;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,24 +18,24 @@ public class CourseController {
     }
 
     @PostMapping
-    public Course createCourse(@RequestBody Course course) {
-        return courseService.createCourse(course);
+    public CourseResponseDTO create(@RequestBody CourseRequestDTO dto) {
+        return courseService.create(dto);
     }
 
     @GetMapping
-    public List<Course> getAllCourses() {
+    public List<CourseResponseDTO> getAllCourses() {
         return courseService.getAllCourses();
     }
 
     @GetMapping("/{id}")
-    public Course getCourseById(@PathVariable Long id) {
+    public CourseResponseDTO getCourseById(@PathVariable Long id) {
         return courseService.getCourseById(id);
     }
 
     @PutMapping("/{id}")
-    public Course updateCourse(@PathVariable Long id,
-                               @RequestBody Course course) {
-        return courseService.updateCourse(id, course);
+    public CourseResponseDTO updateCourse(@PathVariable Long id,
+                                          @RequestBody CourseRequestDTO dto) {
+        return courseService.updateCourse(id, dto);
     }
 
     @DeleteMapping("/{id}")

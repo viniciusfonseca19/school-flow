@@ -6,9 +6,6 @@ public class CourseResponseDTO {
     private String name;
     private String description;
 
-    public CourseResponseDTO() {
-    }
-
     public CourseResponseDTO(Long id, String name, String description) {
         this.id = id;
         this.name = name;
