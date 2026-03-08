@@ -1,11 +1,13 @@
 package com.vini.school.service;
 
+import com.vini.school.dto.request.StudentRequestDTO;
+import com.vini.school.dto.response.StudentResponseDTO;
 import com.vini.school.entity.Student;
 import com.vini.school.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class StudentService {
@@ -16,45 +18,74 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public Student createStudent(Student student) {
+    public StudentResponseDTO create(StudentRequestDTO dto) {
 
-        if (studentRepository.findByEmail(student.getEmail()).isPresent()) {
+        if (studentRepository.findByEmail(dto.getEmail()).isPresent()) {
             throw new RuntimeException("Email already in use");
         }
 
-        if (studentRepository.existsByRegistrationNumber(student.getRegistrationNumber())) {
+        if (studentRepository.existsByRegistrationNumber(dto.getRegistrationNumber())) {
             throw new RuntimeException("Registration number already exists");
         }
 
-        return studentRepository.save(student);
+        Student student = new Student();
+        student.setFullName(dto.getFullName());
+        student.setEmail(dto.getEmail());
+        student.setBirthDate(dto.getBirthDate());
+        student.setRegistrationNumber(dto.getRegistrationNumber());
+
+        Student savedStudent = studentRepository.save(student);
+
+        return convertToResponse(savedStudent);
     }
 
-    public List<Student> getAllStudents() {
-        return studentRepository.findAll();
+    public List<StudentResponseDTO> getAllStudents() {
+
+        return studentRepository.findAll()
+                .stream()
+                .map(this::convertToResponse)
+                .collect(Collectors.toList());
     }
 
-    public Student getStudentById(Long id) {
+    public StudentResponseDTO getStudentById(Long id) {
 
-        return studentRepository.findById(id)
+        Student student = studentRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Student not found"));
+
+        return convertToResponse(student);
     }
 
-    public Student updateStudent(Long id, Student updatedStudent) {
+    public StudentResponseDTO updateStudent(Long id, StudentRequestDTO dto) {
 
-        Student student = getStudentById(id);
+        Student student = studentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Student not found"));
 
-        student.setFullName(updatedStudent.getFullName());
-        student.setEmail(updatedStudent.getEmail());
-        student.setBirthDate(updatedStudent.getBirthDate());
-        student.setRegistrationNumber(updatedStudent.getRegistrationNumber());
+        student.setFullName(dto.getFullName());
+        student.setEmail(dto.getEmail());
+        student.setBirthDate(dto.getBirthDate());
+        student.setRegistrationNumber(dto.getRegistrationNumber());
 
-        return studentRepository.save(student);
+        Student updatedStudent = studentRepository.save(student);
+
+        return convertToResponse(updatedStudent);
     }
 
     public void deleteStudent(Long id) {
 
-        Student student = getStudentById(id);
+        Student student = studentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Student not found"));
 
         studentRepository.delete(student);
+    }
+
+    private StudentResponseDTO convertToResponse(Student student) {
+
+        return new StudentResponseDTO(
+                student.getId(),
+                student.getFullName(),
+                student.getEmail(),
+                student.getRegistrationNumber(),
+                student.getBirthDate()
+        );
     }
 }

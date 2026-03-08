@@ -1,29 +1,41 @@
 package com.vini.school.dto.response;
 
+import java.time.LocalDate;
+
 public class StudentResponseDTO {
 
     private Long id;
-    private String name;
+    private String fullName;
     private String email;
+    private String registrationNumber;
+    private LocalDate birthDate;
 
-    public StudentResponseDTO() {
-    }
-
-    public StudentResponseDTO(Long id, String name, String email) {
+    public StudentResponseDTO(Long id, String fullName, String email,
+                              String registrationNumber, LocalDate birthDate) {
         this.id = id;
-        this.name = name;
+        this.fullName = fullName;
         this.email = email;
+        this.registrationNumber = registrationNumber;
+        this.birthDate = birthDate;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return fullName;
     }
 
     public String getEmail() {
         return email;
+    }
+
+    public String getRegistrationNumber() {
+        return registrationNumber;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 }

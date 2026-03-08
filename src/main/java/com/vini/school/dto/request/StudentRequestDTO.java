@@ -1,26 +1,27 @@
 package com.vini.school.dto.request;
 
+import java.time.LocalDate;
+
 public class StudentRequestDTO {
 
-    private String name;
+    private String fullName;
     private String email;
+    private String registrationNumber;
+    private LocalDate birthDate;
 
-    public StudentRequestDTO() {
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public String getFullName() {
+        return fullName;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getRegistrationNumber() {
+        return registrationNumber;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 }

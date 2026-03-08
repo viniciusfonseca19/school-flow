@@ -1,6 +1,7 @@
 package com.vini.school.controller;
 
-import com.vini.school.entity.Student;
+import com.vini.school.dto.request.StudentRequestDTO;
+import com.vini.school.dto.response.StudentResponseDTO;
 import com.vini.school.service.StudentService;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,27 +17,32 @@ public class StudentController {
         this.studentService = studentService;
     }
 
+    // Criar estudante
     @PostMapping
-    public Student createStudent(@RequestBody Student student) {
-        return studentService.createStudent(student);
+    public StudentResponseDTO createStudent(@RequestBody StudentRequestDTO dto) {
+        return studentService.create(dto);
     }
 
+    // Listar todos
     @GetMapping
-    public List<Student> getAllStudents() {
+    public List<StudentResponseDTO> getAllStudents() {
         return studentService.getAllStudents();
     }
 
+    // Buscar por ID
     @GetMapping("/{id}")
-    public Student getStudentById(@PathVariable Long id) {
+    public StudentResponseDTO getStudentById(@PathVariable Long id) {
         return studentService.getStudentById(id);
     }
 
+    // Atualizar estudante
     @PutMapping("/{id}")
-    public Student updateStudent(@PathVariable Long id,
-                                 @RequestBody Student student) {
-        return studentService.updateStudent(id, student);
+    public StudentResponseDTO updateStudent(@PathVariable Long id,
+                                            @RequestBody StudentRequestDTO dto) {
+        return studentService.updateStudent(id, dto);
     }
 
+    // Deletar estudante
     @DeleteMapping("/{id}")
     public void deleteStudent(@PathVariable Long id) {
         studentService.deleteStudent(id);
