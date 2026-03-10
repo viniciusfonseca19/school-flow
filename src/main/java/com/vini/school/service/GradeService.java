@@ -1,45 +1,86 @@
 package com.vini.school.service;
 
+import com.vini.school.dto.request.GradeRequestDTO;
+import com.vini.school.dto.response.GradeResponseDTO;
+import com.vini.school.entity.Classroom;
 import com.vini.school.entity.Grade;
+import com.vini.school.entity.Student;
+import com.vini.school.repository.ClassroomRepository;
 import com.vini.school.repository.GradeRepository;
+import com.vini.school.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class GradeService {
 
     private final GradeRepository gradeRepository;
+    private final StudentRepository studentRepository;
+    private final ClassroomRepository classroomRepository;
 
-    public GradeService(GradeRepository gradeRepository) {
+    public GradeService(GradeRepository gradeRepository,
+                        StudentRepository studentRepository,
+                        ClassroomRepository classroomRepository) {
         this.gradeRepository = gradeRepository;
+        this.studentRepository = studentRepository;
+        this.classroomRepository = classroomRepository;
     }
 
-    public Grade createGrade(Grade grade) {
-        return gradeRepository.save(grade);
+    public GradeResponseDTO create(GradeRequestDTO dto) {
+
+        if (dto.getValue() < 0 || dto.getValue() > 10) {
+            throw new RuntimeException("Grade must be between 0 and 10");
+        }
+
+        Student student = studentRepository.findById(dto.getStudentId())
+                .orElseThrow(() -> new RuntimeException("Student not found"));
+
+        Classroom classroom = classroomRepository.findById(dto.getClassroomId())
+                .orElseThrow(() -> new RuntimeException("Classroom not found"));
+
+        Grade grade = new Grade();
+        grade.setValue(dto.getValue());
+        grade.setStudent(student);
+        grade.setClassroom(classroom);
+
+        Grade saved = gradeRepository.save(grade);
+
+        return convertToResponse(saved);
     }
 
-    public List<Grade> getAllGrades() {
-        return gradeRepository.findAll();
+    public List<GradeResponseDTO> getAll() {
+
+        return gradeRepository.findAll()
+                .stream()
+                .map(this::convertToResponse)
+                .collect(Collectors.toList());
     }
 
-    public Grade getGradeById(Long id) {
-        return gradeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Grade não encontrada"));
+    public GradeResponseDTO getById(Long id) {
+
+        Grade grade = gradeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Grade not found"));
+
+        return convertToResponse(grade);
     }
 
-    public Grade updateGrade(Long id, Grade grade) {
-        Grade existingGrade = gradeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Grade não encontrada"));
+    public void delete(Long id) {
 
-        existingGrade.setStudent(grade.getStudent());
-        existingGrade.setClassroom(grade.getClassroom());
-        existingGrade.setValue(grade.getValue());
+        Grade grade = gradeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Grade not found"));
 
-        return gradeRepository.save(existingGrade);
+        gradeRepository.delete(grade);
     }
 
-    public void deleteGrade(Long id) {
-        gradeRepository.deleteById(id);
+    private GradeResponseDTO convertToResponse(Grade grade) {
+
+        return new GradeResponseDTO(
+                grade.getId(),
+                grade.getValue(),
+                grade.getStudent().getFullName(),
+                grade.getClassroom().getName()
+        );
     }
 }

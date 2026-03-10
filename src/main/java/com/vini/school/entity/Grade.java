@@ -12,6 +12,8 @@ public class Grade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Double value;
+
     @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;
@@ -19,6 +21,4 @@ public class Grade {
     @ManyToOne
     @JoinColumn(name = "classroom_id")
     private Classroom classroom;
-
-    private Double value;
 }

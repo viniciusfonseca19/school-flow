@@ -3,22 +3,25 @@ package com.vini.school.dto.response;
 public class GradeResponseDTO {
 
     private Long id;
+    private Double value;
     private String studentName;
     private String classroomName;
-    private Double value;
 
-    public GradeResponseDTO() {
-    }
-
-    public GradeResponseDTO(Long id, String studentName, String classroomName, Double value) {
+    public GradeResponseDTO(Long id, Double value,
+                            String studentName,
+                            String classroomName) {
         this.id = id;
+        this.value = value;
         this.studentName = studentName;
         this.classroomName = classroomName;
-        this.value = value;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public Double getValue() {
+        return value;
     }
 
     public String getStudentName() {
@@ -27,9 +30,5 @@ public class GradeResponseDTO {
 
     public String getClassroomName() {
         return classroomName;
-    }
-
-    public Double getValue() {
-        return value;
     }
 }

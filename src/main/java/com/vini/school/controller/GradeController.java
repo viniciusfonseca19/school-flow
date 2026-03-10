@@ -1,6 +1,7 @@
 package com.vini.school.controller;
 
-import com.vini.school.entity.Grade;
+import com.vini.school.dto.request.GradeRequestDTO;
+import com.vini.school.dto.response.GradeResponseDTO;
 import com.vini.school.service.GradeService;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,28 +18,22 @@ public class GradeController {
     }
 
     @PostMapping
-    public Grade createGrade(@RequestBody Grade grade) {
-        return gradeService.createGrade(grade);
+    public GradeResponseDTO create(@RequestBody GradeRequestDTO dto) {
+        return gradeService.create(dto);
     }
 
     @GetMapping
-    public List<Grade> getAllGrades() {
-        return gradeService.getAllGrades();
+    public List<GradeResponseDTO> getAll() {
+        return gradeService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Grade getGradeById(@PathVariable Long id) {
-        return gradeService.getGradeById(id);
-    }
-
-    @PutMapping("/{id}")
-    public Grade updateGrade(@PathVariable Long id,
-                             @RequestBody Grade grade) {
-        return gradeService.updateGrade(id, grade);
+    public GradeResponseDTO getById(@PathVariable Long id) {
+        return gradeService.getById(id);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteGrade(@PathVariable Long id) {
-        gradeService.deleteGrade(id);
+    public void delete(@PathVariable Long id) {
+        gradeService.delete(id);
     }
 }
