@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import Sidebar from "./components/Sidebar"
+import Topbar from "./components/Topbar"
 
 import Dashboard from "./pages/Dashboard"
 import Students from "./pages/Students"
@@ -9,7 +10,8 @@ import Courses from "./pages/Courses"
 import Classrooms from "./pages/Classrooms"
 import Enrollments from "./pages/Enrollments"
 
-import "./styles/app.css"
+import "./styles/theme.css"
+import "./styles/layout.css"
 
 export default function App() {
 
@@ -19,27 +21,33 @@ export default function App() {
 
       <div className="app">
 
-        <Sidebar/>
+        <Sidebar />
 
-        <main className="content">
+        <div className="main">
 
-          <Routes>
+          <Topbar />
 
-            <Route path="/" element={<Dashboard />} />
+          <div className="page">
 
-            <Route path="/students" element={<Students />} />
+            <Routes>
 
-            <Route path="/teachers" element={<Teachers />} />
+              <Route path="/" element={<Dashboard />} />
 
-            <Route path="/courses" element={<Courses />} />
+              <Route path="/students" element={<Students />} />
 
-            <Route path="/classrooms" element={<Classrooms />} />
+              <Route path="/teachers" element={<Teachers />} />
 
-            <Route path="/enrollments" element={<Enrollments />} />
+              <Route path="/courses" element={<Courses />} />
 
-          </Routes>
+              <Route path="/classrooms" element={<Classrooms />} />
 
-        </main>
+              <Route path="/enrollments" element={<Enrollments />} />
+
+            </Routes>
+
+          </div>
+
+        </div>
 
       </div>
 

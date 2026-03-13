@@ -1,50 +1,50 @@
 import { Link, useLocation } from "react-router-dom"
 
 import {
-FaHome,
-FaUserGraduate,
-FaChalkboardTeacher,
-FaBook,
-FaSchool,
-FaClipboardList
+    FaHome,
+    FaUserGraduate, 
+    FaChalkboardTeacher,
+    FaBook,
+    FaSchool,
+    FaClipboardList
 } from "react-icons/fa"
 
 import "../styles/sidebar.css"
 
-export default function Sidebar(){
+    export default function Sidebar(){
 
-const location = useLocation()
+    const location = useLocation()
 
-const menu = [
+    const menu = [
 
-{ name:"Dashboard", path:"/", icon:<FaHome/> },
+        { name:"Dashboard", path:"/", icon:<FaHome/> },
 
-{ name:"Students", path:"/students", icon:<FaUserGraduate/> },
+        { name:"Students", path:"/students", icon:<FaUserGraduate/> },
 
-{ name:"Teachers", path:"/teachers", icon:<FaChalkboardTeacher/> },
+        { name:"Teachers", path:"/teachers", icon:<FaChalkboardTeacher/> },
 
-{ name:"Courses", path:"/courses", icon:<FaBook/> },
+        { name:"Courses", path:"/courses", icon:<FaBook/> },
 
-{ name:"Classrooms", path:"/classrooms", icon:<FaSchool/> },
+        { name:"Classrooms", path:"/classrooms", icon:<FaSchool/> },
 
-{ name:"Enrollments", path:"/enrollments", icon:<FaClipboardList/> }
+        { name:"Enrollments", path:"/enrollments", icon:<FaClipboardList/> }
 
 ]
 
 return(
 
-<div className="sidebar">
+    <div className="sidebar">
 
-<h2 className="logo">EduManager</h2>
+        <h2 className="logo">SchoolFlow</h2>
 
-<ul>
+        <ul>
 
-{menu.map((item)=> (
+        {menu.map((item)=> (
 
-<li
-key={item.path}
-className={location.pathname===item.path ? "active":""}
->
+        <li
+        key={item.path}
+        className={location.pathname===item.path ? "active":""}
+        >
 
 <Link to={item.path}>
 
