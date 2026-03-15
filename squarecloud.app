@@ -1,0 +1,4 @@
+DISPLAY_NAME=school-flow-api
+MAIN=school-0.0.1-SNAPSHOT.jar
+MEMORY=512
+VERSION=java17
