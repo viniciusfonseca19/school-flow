@@ -5,7 +5,107 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92f7e9e7-3d54-4024-8067-282ff6db50aa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/SchoolApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/config/CorsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/controller/ClassroomController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/controller/CourseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/controller/EnrollmentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/controller/GradeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/controller/StudentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/controller/TeacherController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/dto/request/ClassroomRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/dto/request/CourseRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/dto/request/EnrollmentRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/dto/request/GradeRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/dto/request/StudentRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/dto/request/TeacherRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/dto/request/UserRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/dto/response/ClassroomResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/dto/response/CourseResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/dto/response/EnrollmentResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/dto/response/GradeResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/dto/response/StudentResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/dto/response/TeacherResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/dto/response/UserResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/entity/Classroom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/entity/Course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/entity/Enrollment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/entity/Grade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/entity/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/entity/Teacher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/repository/ClassroomRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/repository/CourseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/repository/EnrollmentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/repository/GradeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/repository/StudentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/repository/TeacherRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/service/ClassroomService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/service/CourseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/service/EnrollmentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/service/GradeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/service/StudentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/service/TeacherService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/java/com/vini/school/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/BACKEND/src/test/java/com/vini/school/SchoolApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/eslint.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/public/vite.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/App.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/components/AddModal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/components/AddModal.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/components/Card.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/components/Card.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/components/Navbar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/components/Navbar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/components/Sidebar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/components/Sidebar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/components/Table.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/components/Table.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/components/ToastContainer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/hooks/useToast.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/main.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/pages/Classrooms.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/pages/Courses.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/pages/Dashboard.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/pages/Dashboard.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/pages/Enrollments.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/pages/Login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/pages/Login.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/pages/StudentDetails.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/pages/StudentDetails.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/pages/Students.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/pages/Teachers.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/services/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/src/styles/global.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/FRONTEND/school-flow/vite.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BACKEND/nixpacks.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/school-flow/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/school-flow/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,11 +117,12 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/BACKEND" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -61,7 +162,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/fonse/OneDrive/Desktop/Java/SPRING/APIs/school",
     "settings.editor.selected.configurable": "MavenSettings"
