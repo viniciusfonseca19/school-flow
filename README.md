@@ -19,6 +19,9 @@ Clean UI inspired by GitHub, Linear and Vercel. Complete CRUD for all academic e
 
 ## 📸 Preview
 
+<img width="1919" height="939" alt="Captura de tela 2026-03-16 213434" src="https://github.com/user-attachments/assets/2c42ac6c-525f-45ef-9431-b36887cb0835" />
+
+
 ## 🧱 Tech Stack
 
 ### Frontend
